@@ -69,13 +69,14 @@ you will need to restart the frontend.*/
   async function updatePdf(pdf, fieldChanged) {
     const body_data = JSON.stringify(pdf);
     const url = process.env.NEXT_PUBLIC_API_URL + `/pdfs/${pdf.id}`;
-
+ 
     await fetch(url, {
         method: 'PUT',
         body: body_data,
         headers: { 'Content-Type': 'application/json' }
     });
   }
+
 
   async function handleDeletePdf(id) {
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/pdfs/${id}`, {
